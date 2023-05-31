@@ -5,17 +5,20 @@ import theme from "./src/global/styles/theme";
 import { Routes } from "./src/routes";
 import { AuthProvider } from "./src/context/AuthContext";
 import { StatusBar } from "expo-status-bar";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 
 export const App = () => {
   return (
-    <NavigationContainer>
-      <StatusBar backgroundColor="transparent" translucent />
-      <ThemeProvider theme={theme}>
-        <AuthProvider>
-          <Routes />
-        </AuthProvider>
-      </ThemeProvider>
-    </NavigationContainer>
+    <GestureHandlerRootView style={{ flex: 1 }}>
+      <NavigationContainer>
+        <StatusBar backgroundColor="transparent" translucent />
+        <ThemeProvider theme={theme}>
+          <AuthProvider>
+            <Routes />
+          </AuthProvider>
+        </ThemeProvider>
+      </NavigationContainer>
+    </GestureHandlerRootView>
   );
 };
 export default App;
